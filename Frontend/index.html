@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Habit Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+
+    <body>
+
+    <!-- Authentication Container (Login/Register) -->
+    <div id="auth-container" class="container">
+        <!-- Login View -->
+        <div id="login-view">
+            <h1>Login to Your Tracker</h1>
+            <form id="login-form">
+                <input type="email" id="login-email" placeholder="Email" required>
+                <input type="password" id="login-password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+            <p id="auth-message" style="color:red; margin-top:15px;"></p>
+            <p style="margin-top:20px;">Don't have an account? <a href="#" id="show-register-link">Register here</a></p>
+        </div>
+
+        <!-- Register View -->
+        <div id="register-view" class="hidden">
+            <h1>Create Your Account</h1>
+            <form id="register-form">
+                <input type="email" id="register-email" placeholder="Email" required>
+                <input type="password" id="register-password" placeholder="Password" required>
+                <button type="submit">Register</button>
+            </form>
+            <p style="margin-top:20px;">Already have an account? <a href="#" id="show-login-link">Login here</a></p>
+        </div>
+    </div>
+
+    <!-- Main App Container (Your Habit Tracker) -->
+    <div id="app-container" class="container hidden">
+        <div class="app-header">
+            <h1 class="app-title">Smart Habit Tracker</h1>
+            <div class="header-buttons">
+                <button id="profile-button" title="View Profile">👤</button>
+                <button id="logout-button" title="Logout">Logout 🚪</button>
+            </div>
+        </div>
+
+        <div class="input-section">
+            <input type="text" id="habitInput" placeholder="Enter a new habit...">
+            <button id="addHabitBtn">Add Habit</button>
+            <button id="themeToggle">🌑</button>
+        </div>
+
+        <ul id="habitList"></ul>
+
+        <div class="progress-section">
+            <div class="progress-bar" id="progressBar"></div>
+            <p id="progressText">0% Completed</p>
+        </div>
+
+        <div class="chatbot-container">
+            <h3>💬 Habit Bot</h3>
+            <div id="chat-window" class="chat-window"></div>
+            <div class="chat-input-area">
+                <input type="text" id="chat-input" placeholder="Ask me about habits..." />
+                <button id="send-btn">Send</button>
+            </div>
+        </div>
+
+        <p id="motivationMsg">Start tracking your habits today!</p>
+    </div>
+
+    <!-- Daily Motivational Quote Popup -->
+    <div id="dailyQuotePopup" class="daily-quote-popup" style="display:none;">
+        <div class="popup-content">
+            <span class="close-btn" id="closeQuotePopup">&times;</span>
+            <h3>Daily Motivation</h3>
+            <p id="dailyQuoteText"></p>
+        </div>
+    </div>
+
+    <!-- ================================================= -->
+    <!-- == NEW PROFILE POPUP (MODAL) ADDED HERE == -->
+    <!-- ================================================= -->
+    <div id="profilePopup" class="profile-popup hidden">
+        <div class="popup-content">
+            <span class="close-btn" id="closeProfilePopup">&times;</span>
+            <h3>My Profile</h3>
+            <p><strong>Email:</strong> <span id="profile-email"></span></p>
+            <hr>
+            <h4>My Badge Collection</h4>
+            <div id="profile-badges" class="profile-badges-container">
+                <!-- Badges will be dynamically inserted here by JavaScript -->
+                <p>No badges earned yet. Keep up the consistency!</p>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
